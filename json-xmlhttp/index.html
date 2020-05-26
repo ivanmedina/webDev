@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>xmlhttp and json</title>
+  </head>
+  <body>
+
+    <div id="displays"></div>
+
+    <script type="text/javascript">
+
+
+
+    function myFunction(arr){
+      var out="";
+      var i;
+      for(i=0;i<arr.length;i++)
+      {
+        out+= '<a href="'+arr[i].url + '">'+arr[i].display+'</a><br>'
+      }
+      document.getElementById("displays").innerHTML = out;
+    }
+
+    var xmlhttp = new XMLHttpRequest();
+    var url="myarray"
+
+    xmlhttp.onreadystatechange = function()
+    {
+      if(this.readyState == 4 && this.status==200)
+      {
+        var myarray= JSON.parse(this.responseText);
+        myFunction(myarray);
+      }
+    }
+
+    xmlhttp.open("GET",url,true);
+    xmlhttp.send();
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JSON Tutorial</title>
+  </head>
+  <body>
+
+    <ul id="personas"></ul>
+    <script type="text/javascript">
+
+
+        // var persona= {
+        //   "name" :"ivan",
+        //   "age":22,
+        //   "nickname":"ivan123",
+        //   "city":"New York"
+        // };
+        //
+        //
+        // var personas=[
+        //   persona,
+        //   {"name":"carolina","age":23,"nickname":"caro123","city":"New York"},
+        //   {"name":"juan","age":23,"nickname":"juan123","city":"Guadalajara"},
+        //   {"name":"diana","age":23,"nickname":"diana123","city":"Guadalajara"}
+        // ];
+        //
+        // salida="";
+        //
+        // for(var i =0; i< personas.length;i++)
+        // {
+        //   salida += `<li> ${personas[i].name} es ${personas[i].nickname} </li>`;
+        // }
+        //
+        // document.getElementById('personas').
+        // innerHTML=salida;
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+          if(this.readyState == 4 && this.status ==200)
+          {
+            var salida="";
+            var response=JSON.parse(xhttp.responseText);
+            var personas=response.personas;
+            for(var i =0; i< personas.length;i++)
+            {
+             salida += `<li> ${personas[i].name} es ${personas[i].nickname} </li>`;
+            }
+              document.getElementById('personas').innerHTML=salida;      
+          }
+        };
+        xhttp.open("GET","personas.json",true);
+        xhttp.send();
+
+    </script>
+  </body>
+</html>

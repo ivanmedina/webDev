@@ -1,0 +1,7 @@
+{"personas":[
+  {"name":"ivan","age":22,"nickname":"ivan123","city":"New York"},
+  {"name":"carolina","age":23,"nickname":"caro123","city":"New York"},
+  {"name":"juan","age":23,"nickname":"juan123","city":"Guadalajara"},
+  {"name":"diana","age":23,"nickname":"diana123","city":"Guadalajara"}
+]
+}
